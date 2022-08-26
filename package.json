@@ -1,0 +1,21 @@
+{
+  "name": "walls-scrawls-and-stalls",
+  "version": "1.0.0",
+  "description": "## Project Description",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amregala/Walls-Scrawls-and-Stalls.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amregala/Walls-Scrawls-and-Stalls/issues"
+  },
+  "homepage": "https://github.com/amregala/Walls-Scrawls-and-Stalls#readme"
+}
