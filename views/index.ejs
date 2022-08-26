@@ -1,0 +1,10 @@
+<%- include ('./partials/header.ejs') %>
+<div class="mainContainer">
+  <ul>
+    <% for(let i=0; i < walls.length; i++) { %>
+    <li>
+      <a href="/<%= walls[i] %>"><img src="<%= walls[i] %>" /></a>
+    </li>
+    <% } %>
+  </ul>
+</div>
