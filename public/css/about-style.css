@@ -4,6 +4,9 @@
 
 body {
   background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   color: white;
   font-family: "Raleway", sans-serif;
 }
@@ -12,9 +15,11 @@ h3 {
   margin: 0;
 }
 .nav-bar {
+  padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  font-weight: bold;
 }
 a {
   text-decoration: none;
@@ -24,14 +29,10 @@ a:hover {
   text-decoration: underline;
 }
 
-ul {
-  list-style-type: none;
-}
-
-.single-post {
-  padding-bottom: 15px;
-}
-
-.location {
-  font-weight: bold;
+div {
+  margin: auto;
+  margin-top: 200px;
+  width: 72%;
+  text-align: center;
+  line-height: 1.6;
 }

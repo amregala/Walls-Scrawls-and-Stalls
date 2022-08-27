@@ -82,6 +82,11 @@ app.get("/wss-home", (req, res) => {
   res.render("home.ejs");
 });
 
+// ABOUT ROUTE
+app.get("/about", (req, res) => {
+  res.render("about.ejs");
+});
+
 //INDEX ROUTE
 app.get("/walls", (req, res) => {
   Wall.find({}, (error, walls) => {
