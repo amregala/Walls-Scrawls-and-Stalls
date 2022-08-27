@@ -4,6 +4,16 @@
 
 body {
   background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-image: url(/images/banksy-main.jpg); */
+  background: linear-gradient(rgba(15, 15, 15, 0.3), rgba(15, 15, 15, 0.3)),
+    url(/images/banksy-main.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   color: white;
   font-family: "Raleway", sans-serif;
 }
@@ -19,16 +29,4 @@ h3 {
 a {
   text-decoration: none;
   color: white;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.single-post {
-  padding-bottom: 15px;
-}
-
-.location {
-  font-weight: bold;
 }

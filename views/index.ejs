@@ -2,9 +2,13 @@
 <div class="mainContainer">
   <ul>
     <% for(let i=0; i < walls.length; i++) { %>
-    <li>
-      <a href="/<%= walls[i] %>"><img src="<%= walls[i] %>" /></a>
-    </li>
+    <div class="single-post">
+      <a href="/walls/<%= i %>">
+        <li class="year">Year | <%= walls[i].yearPhotoWasTaken %></li>
+        <li class="location">Location | <%= walls[i].location %></li>
+        <li class="artist">Artist | <%= walls[i].artist %></li>
+      </a>
+    </div>
     <% } %>
   </ul>
 </div>
