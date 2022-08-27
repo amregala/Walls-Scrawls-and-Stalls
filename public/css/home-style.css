@@ -17,15 +17,27 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+header {
+  display: inline-block;
+}
+
 h3 {
-  margin: 0;
+  margin: 35px;
+
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 }
 .nav-bar {
-  padding-top: 20px;
+  /* padding-top: 20px; */
+  margin: 35px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  justify-content: flex-end;
   font-weight: bold;
+}
+.nav-bar a {
+  padding: 10px;
 }
 a {
   text-decoration: none;
