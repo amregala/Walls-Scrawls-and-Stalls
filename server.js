@@ -4,6 +4,12 @@ const port = 3000;
 const methodOverride = require("method-override");
 const { render } = require("ejs");
 
+// ENVIRONMENT VARRIABLES
+require("dotenv").config();
+const PORT = process.env.PORT;
+
+// CONTROLLERS;
+
 // MODELS
 const Wall = require("./models/walls.js");
 
@@ -13,7 +19,7 @@ const mongoose = require("mongoose");
 // const Wall = require("./models/walls.js");
 // console.log(Wall);
 //Config
-const mongoURI = "mongodb://localhost:27017/walls";
+const mongoURI = process.env.MONGODB_URI;
 const db = mongoose.connection;
 
 // Connect to Mongo
@@ -23,32 +29,32 @@ mongoose.connect(mongoURI, () => {
 
 //MIDDLEWARE
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-const manyWalls = [
-  {
-    year: 2010,
-    location: "New York, New York",
-    artist: "Barry McGee",
-  },
-  {
-    year: 2019,
-    location: "Bogota, Colombia",
-    artist: "Guache",
-  },
-  {
-    year: 1985,
-    location: "Amsterdam, Netherlands",
-    artist: "Delta (Boris Tellegen)",
-  },
-  {
-    year: 1980,
-    location: "New York, New York",
-    artist: "Keith Haring",
-  },
-];
+// const manyWalls = [
+//   {
+//     year: 2010,
+//     location: "New York, New York",
+//     artist: "Barry McGee",
+//   },
+//   {
+//     year: 2019,
+//     location: "Bogota, Colombia",
+//     artist: "Guache",
+//   },
+//   {
+//     year: 1985,
+//     location: "Amsterdam, Netherlands",
+//     artist: "Delta (Boris Tellegen)",
+//   },
+//   {
+//     year: 1980,
+//     location: "New York, New York",
+//     artist: "Keith Haring",
+//   },
+// ];
 
 // Wall.create(testWall, (err, wall) => {
 //   if (err) {
@@ -59,14 +65,14 @@ const manyWalls = [
 //   db.close();
 // });
 
-Wall.insertMany(manyWalls, (error, walls) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(walls);
-  }
-  // db.close();
-});
+// Wall.insertMany(manyWalls, (error, walls) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(walls);
+//   }
+//   // db.close();
+// });
 
 //DEFAULT
 // app.get("/", (req, res) => {
@@ -116,6 +122,6 @@ app.post("/walls", (req, res) => {
 
 // EDIT
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
