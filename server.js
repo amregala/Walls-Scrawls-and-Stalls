@@ -3,12 +3,23 @@ const app = express();
 const port = 3000;
 const methodOverride = require("method-override");
 const { render } = require("ejs");
+const session = require("express-session");
 
 // ENVIRONMENT VARRIABLES
 require("dotenv").config();
 const PORT = process.env.PORT;
 
-// CONTROLLERS;
+// SESSIONS
+const SESSION_SECRET = process.env.SESSION_SECRET;
+console.log("Here is the session secret:");
+console.log(SESSION_SECRET);
+app.use(
+  session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 // MODELS
 const Wall = require("./models/walls.js");
@@ -32,6 +43,10 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
+
+// CONTROLLERS
+const userController = require("./controllers/userController.js");
+app.use("/users", userController);
 
 // const manyWalls = [
 //   {
@@ -71,7 +86,7 @@ app.use(methodOverride("_method"));
 //   } else {
 //     console.log(walls);
 //   }
-//   // db.close();
+//   db.close();
 // });
 
 //DEFAULT
