@@ -28,10 +28,28 @@ router.post("/register", (req, res) => {
   });
 });
 
-router.get('/signin', (req, res) => {
-  res.render('users/signin.ejs')
-  })
+router.get("/signin", (req, res) => {
+  res.render("users/signin.ejs");
+});
 
+router.post("/signin", (req, res) => {
+  User.findOne({ username: req.body.username }, (err, foundUser) => {
+    if (foundUser) {
+      const validLogin = bcrypt.compareSync(
+        req.body.password,
+        foundUser.password
+      );
+      if (validLogin) {
+        req.session.currentUser = foundUser;
+        res.send("User logged in");
+      } else {
+        res.send("Invalid username or password");
+      }
+    } else {
+      res.send("Invalid username or password");
+    }
+  });
+});
 
 module.exports = router;
 
