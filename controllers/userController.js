@@ -20,12 +20,18 @@ router.post("/register", (req, res) => {
       res.send("That username is taken");
     } else {
       User.create(req.body, (err, createdUser) => {
-        console.log(createdUser);
-        res.send("User created");
+        // console.log(createdUser);
+        //res.send("User created");
+        res.redirect("/about");
       });
     }
   });
 });
+
+router.get('/signin', (req, res) => {
+  res.render('users/signin.ejs')
+  })
+
 
 module.exports = router;
 
