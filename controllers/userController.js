@@ -20,9 +20,10 @@ router.post("/register", (req, res) => {
       res.send("That username is taken");
     } else {
       User.create(req.body, (err, createdUser) => {
+        req.session.currentUser = createdUser
         // console.log(createdUser);
         //res.send("User created");
-        res.redirect("/about");
+        res.redirect("/walls");
       });
     }
   });
@@ -41,7 +42,8 @@ router.post("/signin", (req, res) => {
       );
       if (validLogin) {
         req.session.currentUser = foundUser;
-        res.send("User logged in");
+        // res.send("User logged in");
+        res.redirect("/walls");
       } else {
         res.send("Invalid username or password");
       }
@@ -49,6 +51,12 @@ router.post("/signin", (req, res) => {
       res.send("Invalid username or password");
     }
   });
+});
+
+// DESTROY SESSION ROUTE
+router.get("/signout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/wss-home");
 });
 
 module.exports = router;
