@@ -99,8 +99,8 @@ app.use("/users", userController);
 // });
 
 // HOME ROUTE
-app.get("/wss-home", (req, res) => {
-  res.render("home.ejs");
+app.get("/users/signin", (req, res) => {
+  res.render("users/signin.ejs");
 });
 
 // ABOUT ROUTE

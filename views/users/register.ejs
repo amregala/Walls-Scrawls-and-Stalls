@@ -1,15 +1,25 @@
 <%- include('../partials/header.ejs') %>
-    <h1>Register A New User</h1>
-    <form action="/users/register" method="POST">
-      <fieldset>
-        <label for="username">Username:</label>
-        <input type="text" name="username">
-      </fieldset>
-      <fieldset>
-        <label for="password">Password:</label>
-        <input type="password" name="password">
-      </fieldset>
-      <input type="submit" value="Sign Up">
-    </form>
+
+<%- include('../partials/form.ejs') %>
+<div class="login-box">
+  <h2>Register A New User</h2>
+  <form action="/users/register" method="POST">
+    <div class="user-box">
+      <input type="text" name="username" required="">
+      <label for="username">Username:</label>
+     
+    </div>
+
+    <div class="user-box">
+      <input type="password" name="password" required="">
+    <label for="password">Password:</label>
+   
+    </div>
+   
+    <input type="submit" value="Sign Up">
+  </form>
+
+</div>
+   
   </body>
 </html>

@@ -3,19 +3,11 @@
 /* font-family: 'Raleway', sans-serif; */
 
 body {
-  background-color: black;
+  background-color: grey;
   color: white;
   font-family: "Raleway", sans-serif;
 }
 
-h3 {
-  margin: 0;
-}
-.nav-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
 a {
   text-decoration: none;
   color: white;
