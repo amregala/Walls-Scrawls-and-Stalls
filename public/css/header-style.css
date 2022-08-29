@@ -1,31 +1,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+li,
+a {
   font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
 }
 
 header {
   background: rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-wrap: wrap;
+  display: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
 }
 
-h3 {
-  padding-right: 55px;
+header a:hover {
+  color: #0088a9;
+  text-decoration: underline;
 }
-h3 a {
-  padding: 10px;
+nav {
+  display: block;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  transition: all 0.3 ease 0s;
+}
+
+.nav_links li a:hover {
+  color: #0088a9;
+  text-decoration: underline;
+}
+
+/* .nav-title {
+  /* padding-right: 55px; */
+/* text-align: left; */
+
+/* h3 a {
   text-decoration: none;
   color: white;
-}
+} */
 
-.nav-bar {
+/* .nav-sub {
   font-weight: bold;
-}
-.nav-bar a {
-  margin-top: 55px;
+  text-align: right;
+  /* margin-top: 20px; */
+
+/* .nav-bar a {
   padding: 10px;
   text-decoration: none;
   color: white;
@@ -34,4 +72,4 @@ h3 a {
 a:hover {
   text-decoration: underline;
   text-shadow: 0 0 5px yellow;
-}
+}  */

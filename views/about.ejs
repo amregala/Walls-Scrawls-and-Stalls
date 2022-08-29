@@ -1,28 +1,42 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/page.ejs') %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/about-style.css" />
-    <title>Walls, Scrawls and Stalls</title>
-  </head>
-  <body>
-    <header>
-      <nav class="nav-bar">
-        <a href="/walls">WALLS, SCRAWLS AND STALLS</a>
-        |
-        <!-- <a href="/walls/new">SCRAWL</a> -->
-        <!-- | -->
-        <a href="/users/register">Register</a>
-        |
-        <a href="/users/signin">Signin</a>
-        <!-- | -->
-        <!-- <a href="/users/signout">Signout</a> -->
-        |
-        <a href="/about">About Project</a>
-      </nav>
-    </header>
+<head>
+  
+  <style>
+    body {
+      background: linear-gradient(rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.6)),
+url(/images/banksy-main.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+font-family: "Raleway", sans-serif;
+color: white;
+
+      text-align: center;
+    }
+    div {
+      margin: 0 auto;
+       width: 80%; 
+       position: absolute;
+    top: 50%;
+    left: 50%;
+  
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+</html>
 
     <div>
       <p>
@@ -34,6 +48,10 @@
         ephemeral visuals by allowing users to upload and post images of
         graffiti/tags they encounter from around the world to this shared site.
       </p>
+
+<br>
+
+
       <p>
         According to an article from the (Atlantic), graffiti is often broken
         down into "three categories: Tourist graffiti (“John wuz here”),

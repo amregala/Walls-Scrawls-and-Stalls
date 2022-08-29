@@ -1,5 +1,4 @@
-<%- include('./partials/header.ejs') %>
-<%- include('./partials/page.ejs') %>
+<%- include('./partials/header.ejs') %> <%- include('./partials/page.ejs') %>
 
 <div class="mainContainer">
   <ul>
@@ -9,6 +8,11 @@
         <li class="year">Year | <%= walls[i].year %></li>
         <li class="location">Location | <%= walls[i].location %></li>
         <li class="artist">Artist | <%= walls[i].artist %></li>
+
+        <!-- DELETE BUTTON -->
+        <form action="">
+          <input type="submit" value="DELETE"/>
+        </form>
       </a>
     </div>
     <% } %>

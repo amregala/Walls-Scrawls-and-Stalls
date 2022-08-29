@@ -1,15 +1,16 @@
 body {
-  background: linear-gradient(rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.6)),
+  /* background: linear-gradient(rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.6)),
     url(/images/banksy-main.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; */
+  background-color: bisque;
   color: white;
   font-family: "Raleway", sans-serif;
 }
 
-.login-box {
+.add-box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -22,18 +23,18 @@ body {
   border-radius: 10px;
 }
 
-.login-box h2 {
+.add-box h2 {
   margin: 0 0 30px;
   padding: 0;
   color: #fff;
   text-align: center;
 }
 
-.login-box .user-box {
+.add-box .input-box {
   position: relative;
 }
 
-.login-box .user-box input {
+.add-box .input-box input {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -44,7 +45,7 @@ body {
   outline: none;
   background: transparent;
 }
-.login-box .user-box label {
+.add-box .input-box label {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,8 +55,8 @@ body {
   pointer-events: none;
   transition: 0.5s;
 }
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
+.add-box .input-box input:focus ~ label,
+.add-box .input-box input:valid ~ label {
   top: -20px;
   left: 0;
   color: #03e9f4;

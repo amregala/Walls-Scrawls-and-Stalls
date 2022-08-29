@@ -90,16 +90,16 @@ app.use("/users", userController);
 // });
 
 //DEFAULT
-// app.get("/", (req, res) => {
-//   res.send("Walls, Scrawls and Stalls in Progress");
-// });
+app.get("/", (req, res) => {
+  res.send(`<h1>Walls, Scrawls and Stalls App in Progress</h1>`);
+});
 
 // app.get("/walls", (req, res) => {
 //   res.send(walls);
 // });
 
 // HOME ROUTE
-app.get("/users/signin", (req, res) => {
+app.get("/wss-home", (req, res) => {
   res.render("users/signin.ejs");
 });
 
@@ -115,7 +115,16 @@ app.get("/walls", (req, res) => {
   });
 });
 
+// NEW
+app.get("/walls/new", (req, res) => {
+  res.render("new.ejs");
+});
+
 // SHOW
+app.get("/walls/:id", (req, res) => {
+  const wall = Wall.findById(req.params.id);
+  res.render("show.ejs", { wall });
+});
 
 // CREATE
 app.post("/walls", (req, res) => {
@@ -130,12 +139,14 @@ app.post("/walls", (req, res) => {
   res.redirect("/wall");
 });
 
-// HOME ROUTE
-// app.get("/walls", (req
-
 // DESTROY
+app.delete("/walls/:id", (req, res) => {
+  res.send("deleting item");
+});
 
 // EDIT
+
+// UPDATE
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
