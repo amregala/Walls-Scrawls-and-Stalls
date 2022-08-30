@@ -41,9 +41,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-// CONTROLLERS
+// CONTROLLER IMPORTS
 const userController = require("./controllers/userController.js");
 app.use("/users", userController);
+
+const wallController = require("./controllers/wallController.js");
+app.use("/walls", wallController);
 
 // const manyWalls = [
 //   {
@@ -109,62 +112,7 @@ app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
 
-// INDEX ROUTE
-app.get("/walls", (req, res) => {
-  Wall.find({}, (error, walls) => {
-    res.render("index.ejs", { walls });
-  });
-});
 
-// NEW ROUTE
-app.get("/walls/new", (req, res) => {
-  res.render("new.ejs");
-});
-
-// CREATE ROUTE
-app.post("/walls", (req, res) => {
-  Wall.create(req.body, (error, createdWall) => {
-    if (error) {
-      console.log("error", error);
-      res.send(error);
-    } else {
-      res.redirect("/walls");
-    }
-  });
-});
-
-// SHOW ROUTE
-app.get("/walls/:id", (req, res) => {
-  Wall.findById(req.params.id, (error, wall) => {
-    res.render("show.ejs", { wall });
-  });
-});
-
-// EDIT ROUTE
-app.get("/walls/:id/edit", (req, res) => {
-  Wall.findById(req.params.id, (error, wall) => {
-    res.render("edit.ejs", { wall });
-  });
-});
-
-// UPDATE ROUTE
-app.put("/walls/:id", (req, res) => {
-  Wall.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (error, updatedModel) => {
-      res.redirect("/walls/:id");
-    }
-  );
-});
-
-// DESTROY ROUTE
-app.delete("/walls/:id", (req, res) => {
-  Wall.findByIdAndRemove(req.params.id, (error, data) => {
-    res.redirect("/walls");
-  });
-});
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
