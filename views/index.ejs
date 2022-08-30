@@ -1,4 +1,22 @@
 <%- include('./partials/header.ejs') %> <%- include('./partials/page.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(61, 58, 58);
+      }
+      /* header {
+        background-color: #0088a9;
+      } */
+    </style>
+  </head>
+  <body></body>
+</html>
 
 <div class="mainContainer">
   <ul>
@@ -10,11 +28,10 @@
         <li class="artist">Artist | <%= walls[i].artist %></li>
       </a>
 
-        <!-- DELETE BUTTON -->
-        <form action="">
-          <input type="submit" value="DELETE" />
-        </form>
-      </a>
+      <!-- DELETE BUTTON -->
+      <form action="/walls/<%= walls[i].id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE" />
+      </form>
     </div>
     <% } %>
   </ul>

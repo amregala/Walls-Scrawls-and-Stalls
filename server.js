@@ -97,6 +97,8 @@ app.get("/", (req, res) => {
 //   res.send(walls);
 // });
 
+// SEED ROUTE
+
 // HOME ROUTE
 app.get("/wss-home", (req, res) => {
   res.render("users/signin.ejs");
@@ -144,7 +146,9 @@ app.get("/walls/:id", (req, res) => {
 
 // DESTROY ROUTE
 app.delete("/walls/:id", (req, res) => {
-  res.send("deleting item");
+  Wall.findByIdAndRemove(req.params.id, (error, data) => {
+    res.redirect("/walls");
+  });
 });
 
 app.listen(PORT, () => {

@@ -43,7 +43,7 @@ router.post("/signin", (req, res) => {
       if (validLogin) {
         req.session.currentUser = foundUser;
         // res.send("User logged in");
-        res.redirect("/user-walls");
+        res.redirect("/walls/loggedin");
       } else {
         res.send("Invalid username or password");
       }

@@ -1,1 +1,23 @@
-<%- include('../partials/loggedin.ejs') %>
+<%- include('./partials/header-loggedin.ejs') %> <%-
+include('./partials/page.ejs') %>
+
+<div class="mainContainer">
+  <ul>
+    <% for(let i=0; i < walls.length; i++) { %>
+    <div class="single-doc">
+      <a href="/walls/<%= walls[i].id %>">
+        <li class="year">Year | <%= walls[i].year %></li>
+        <li class="location">Location | <%= walls[i].location %></li>
+        <li class="artist">Artist | <%= walls[i].artist %></li>
+      </a>
+
+      <!-- DELETE BUTTON -->
+      <div>
+        <form action="">
+          <input type="submit" value="DELETE" />
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </ul>
+</div>
