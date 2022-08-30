@@ -141,8 +141,23 @@ app.get("/walls/:id", (req, res) => {
 });
 
 // EDIT ROUTE
+app.get("/walls/:id/edit", (req, res) => {
+  Wall.findById(req.params.id, (error, wall) => {
+    res.render("edit.ejs", { wall });
+  });
+});
 
 // UPDATE ROUTE
+app.put("/walls/:id", (req, res) => {
+  Wall.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (error, updatedModel) => {
+      res.send(updatedModel);
+    }
+  );
+});
 
 // DESTROY ROUTE
 app.delete("/walls/:id", (req, res) => {
