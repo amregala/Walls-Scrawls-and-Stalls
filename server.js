@@ -154,7 +154,7 @@ app.put("/walls/:id", (req, res) => {
     req.body,
     { new: true },
     (error, updatedModel) => {
-      res.send(updatedModel);
+      res.redirect("/walls/:id");
     }
   );
 });
