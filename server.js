@@ -23,16 +23,13 @@ app.use(
 
 // MODELS
 const Wall = require("./models/walls.js");
+console.log(Wall);
 
 // SETUP MONGOOSE//DEPENDENCIES
 const mongoose = require("mongoose");
-// Importing Model
-// const Wall = require("./models/walls.js");
-// console.log(Wall);
-//Config
+//Configuration
 const mongoURI = process.env.MONGODB_URI;
 const db = mongoose.connection;
-
 // Connect to Mongo
 mongoose.connect(mongoURI, () => {
   console.log("The connection with mongod is established");
@@ -89,6 +86,8 @@ app.use("/users", userController);
 //   db.close();
 // });
 
+// ****** ROUTES *******
+
 //DEFAULT
 app.get("/", (req, res) => {
   res.send(`<h1>Walls, Scrawls and Stalls App in Progress</h1>`);
@@ -108,45 +107,45 @@ app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
 
-//INDEX ROUTE
+// INDEX ROUTE
 app.get("/walls", (req, res) => {
   Wall.find({}, (error, walls) => {
     res.render("index.ejs", { walls });
   });
 });
 
-// NEW
+// NEW ROUTE
 app.get("/walls/new", (req, res) => {
   res.render("new.ejs");
 });
 
-// SHOW
-app.get("/walls/:id", (req, res) => {
-  const wall = Wall.findById(req.params.id);
-  res.render("show.ejs", { wall });
-});
-
-// CREATE
+// CREATE ROUTE
 app.post("/walls", (req, res) => {
   Wall.create(req.body, (error, createdWall) => {
     if (error) {
       console.log("error", error);
       res.send(error);
     } else {
-      res.send(createdWall);
+      res.redirect("/walls");
     }
   });
-  res.redirect("/wall");
 });
 
-// DESTROY
+// SHOW ROUTE
+app.get("/walls/:id", (req, res) => {
+  Wall.findById(req.params.id, (error, wall) => {
+    res.render("show.ejs", { wall });
+  });
+});
+
+// EDIT ROUTE
+
+// UPDATE ROUTE
+
+// DESTROY ROUTE
 app.delete("/walls/:id", (req, res) => {
   res.send("deleting item");
 });
-
-// EDIT
-
-// UPDATE
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
