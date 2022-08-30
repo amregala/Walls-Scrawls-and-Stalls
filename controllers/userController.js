@@ -4,6 +4,9 @@ const bcrypt = require("bcrypt");
 //USER MODEL
 const User = require("../models/users");
 
+//WALL MODEL??
+const Wall = require("../models/walls");
+
 const router = express.Router();
 
 router.get("/register", (req, res) => {
@@ -23,7 +26,7 @@ router.post("/register", (req, res) => {
         req.session.currentUser = createdUser;
         // console.log(createdUser);
         //res.send("User created");
-        res.redirect("/walls");
+        res.redirect("/walls/loggedin");
       });
     }
   });

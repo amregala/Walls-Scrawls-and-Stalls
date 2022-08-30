@@ -1,31 +1,46 @@
-<%- include('./partials/header.ejs') %>
-<%- include('./partials/add-new.ejs') %>
+<%- include('./partials/add-new.ejs') %> <%- include('./partials/page.ejs') %>
 
-<div class="add-box">
-    <h2>Add Wall, Scrawl or Stall</h2>
-    <form action="/walls" method="POST">
-      
-      <div class="input-box">
-        <input type="text" name="year" required="">
-        <label for="year">Year Photo Was Taken</label>
-       
-      </div>
-    
-      <div class="input-box">
-        <input type="text" name="location" required="">
-        <label for="location">Location</label>
-        
-      </div>
-      <div class="input-box">
-        <input type="text" name="artist" required="">
-        <label for="artist">Artist (if known)</label>
-        
-      </div>
-    
-      <input type="submit" value="Submit">
-    </form>
-    
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/header-style.css" />
+    <title>WSS | Edit Page</title>
+  </head>
+
+  <body>
+    <header>
+      <h3 class="nav-title">
+        <a href="/walls/loggedin">WALLS, SCRAWLS AND STALLS</a>
+      </h3>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="/users/signout">Signout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="add-box">
+      <h2>Add Wall, Scrawl or Stall</h2>
+      <form action="/walls" method="POST">
+        <div class="input-box">
+          <input type="text" name="year" required="" />
+          <label for="year">Year Photo Was Taken</label>
+        </div>
+
+        <div class="input-box">
+          <input type="text" name="location" required="" />
+          <label for="location">Location</label>
+        </div>
+        <div class="input-box">
+          <input type="text" name="artist" required="" />
+          <label for="artist">Artist (if known)</label>
+        </div>
+
+        <input type="submit" value="Submit" />
+      </form>
     </div>
-    
-      </body>
-    </html>
+  </body>
+</html>

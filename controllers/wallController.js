@@ -9,6 +9,7 @@ const authRequired = (req, res, next) => {
     next();
   } else {
     res.send("You must be logged in to do that");
+    // res.redirect("user/signin")
   }
 };
 
@@ -20,8 +21,15 @@ router.get("/", (req, res) => {
   });
 });
 
+//USER INDEX ROUTE
+router.get("/loggedin", (req, res) => {
+  Wall.find({}, (error, walls) => {
+    res.render("user-index.ejs", { walls });
+  });
+});
+
 // NEW ROUTE
-router.get("/new", (req, res) => {
+router.get("/loggedin/new", authRequired, (req, res) => {
   res.render("new.ejs");
 });
 
@@ -32,7 +40,7 @@ router.post("/", (req, res) => {
       console.log("error", error);
       res.send(error);
     } else {
-      res.redirect("/walls");
+      res.redirect("/walls/loggedin");
     }
   });
 });
@@ -45,7 +53,7 @@ router.get("/:id", (req, res) => {
 });
 
 // EDIT ROUTE
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", authRequired, (req, res) => {
   Wall.findById(req.params.id, (error, wall) => {
     res.render("edit.ejs", { wall });
   });
@@ -53,20 +61,20 @@ router.get("/:id/edit", (req, res) => {
 
 // UPDATE ROUTE
 router.put("/:id", (req, res) => {
-  Wall.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (err, updatedModel) => {
-      res.redirect("/walls/:id");
+  Wall.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel) => {
+    if (err) {
+      console.log("error", err);
+      res.send(err);
+    } else {
+      res.redirect("/walls/loggedin");
     }
-  );
+  });
 });
 
 // DESTROY ROUTE
-router.delete("/:id", (req, res) => {
+router.delete("/:id", authRequired, (req, res) => {
   Wall.findByIdAndRemove(req.params.id, (error, data) => {
-    res.redirect("/walls");
+    res.redirect("/walls/loggedin");
   });
 });
 

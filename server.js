@@ -21,6 +21,16 @@ app.use(
   })
 );
 
+// Custom MIDDLEWARE
+// a local variable on all routes
+// app.use((req, res, next) => {
+// res.locals.currentUser = req.session.currentUser;
+// if (req.session.currentUser {
+//       res.locals.autenticated = true;
+// }
+// next();
+// });
+
 // MODELS
 const Wall = require("./models/walls.js");
 console.log(Wall);
@@ -41,6 +51,27 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
+//MULTER MIDDLEWARE
+// const multer = require("multer");
+// const fileStorageEngine = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "./images");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.originalname);
+//   },
+// });
+// const upload = { storage: fileStorageEngine };
+
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, index.html));
+// });
+
+// app.post("/single", upload.single("image"), (req, res) => {
+//   console.log(req.file);
+//   res.send("Single File Upload Success");
+// });
+
 // CONTROLLER IMPORTS
 const userController = require("./controllers/userController.js");
 app.use("/users", userController);
@@ -48,6 +79,18 @@ app.use("/users", userController);
 const wallController = require("./controllers/wallController.js");
 app.use("/walls", wallController);
 
+// ****** ROUTES *******
+
+//DEFAULT
+app.get("/", (req, res) => {
+  res.send(`<h1>Walls, Scrawls and Stalls App</h1>`);
+});
+
+// app.get("/walls", (req, res) => {
+//   res.send(walls);
+// });
+
+// SEED ROUTE
 // const manyWalls = [
 //   {
 //     year: 2010,
@@ -89,18 +132,6 @@ app.use("/walls", wallController);
 //   db.close();
 // });
 
-// ****** ROUTES *******
-
-//DEFAULT
-app.get("/", (req, res) => {
-  res.send(`<h1>Walls, Scrawls and Stalls App in Progress</h1>`);
-});
-
-// app.get("/walls", (req, res) => {
-//   res.send(walls);
-// });
-
-// SEED ROUTE
 
 // HOME ROUTE
 app.get("/wss-home", (req, res) => {
@@ -111,8 +142,6 @@ app.get("/wss-home", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
-
-
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

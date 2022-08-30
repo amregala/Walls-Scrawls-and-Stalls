@@ -22,8 +22,39 @@ ul {
 
 .single-doc {
   padding-bottom: 15px;
+  margin: 20px;
 }
 
 .location {
   font-weight: bold;
+}
+
+.crud-btn {
+  display: flex;
+}
+input[type="submit"] {
+  padding: 5px 15px;
+  background: #03e9f4;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  margin: 20px;
+}
+
+button {
+  padding: 5px 15px;
+  background: #03e9f4;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  margin: 20px;
+}
+button a {
+  color: black;
 }

@@ -1,19 +1,35 @@
-<%- include('./partials/header.ejs') %> <%- include('./partials/page.ejs') %>
+<%- include('./partials/page.ejs') %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/header-style.css" />
+    <title>Walls, Scrawls and Stalls</title>
     <style>
       body {
         background-color: rgb(61, 58, 58);
+      }
+      button a {
+        color: black;
       }
     </style>
   </head>
 
   <body>
+    <header>
+      <h3 class="nav-title">
+        <a href="/walls/loggedin"> WALLS, SCRAWLS, AND STALLS</a>
+      </h3>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="/walls/loggedin/new">Add New Post </a></li>
+          <li><a href="/users/signout">Signout</a></li>
+        </ul>
+      </nav>
+    </header>
     <div class="mainContainer">
       <ul>
         <% for(let i=0; i < walls.length; i++) { %>
@@ -24,18 +40,15 @@
             <li class="artist">Artist | <%= walls[i].artist %></li>
           </a>
 
-          <!-- BUTTON DIV SECTION BELOW -->
+          <!-- BUTTON DIV SECTION BELOW-->
           <div class="crud-btn">
-            <!-- NEW BUTTON -->
-            <button>
-              <a href="/walls/<%= walls[i].id; %>/edit">New</a>
-            </button>
-
             <!-- EDIT BUTTON -->
 
-            <button><a href="/walls/<%= walls[i].id; %>/edit">Edit </a></button>
-
+            <button>
+              <a href="/walls/<%= walls[i].id; %>/edit">Edit </a>
+            </button>
             <!-- DELETE BUTTON -->
+
             <form
               action="/walls/<%= walls[i].id%>?_method=DELETE"
               method="POST"
