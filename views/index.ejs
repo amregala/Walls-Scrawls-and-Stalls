@@ -15,10 +15,14 @@
 
   <body>
     <div class="mainContainer">
-      <ul>
-        <% for(let i=0; i < walls.length; i++) { %>
-        <div class="single-doc">
-          <a href="/walls/<%= walls[i].id %>">
+      <% for(let i=0; i < walls.length; i++) { %>
+      <div class="single-doc">
+     
+        <a href="/walls/<%= walls[i].id %>">
+
+          <img src="<%= walls[i].img%>" alt="" width="200" height="200"/>
+      
+          <ul>
             <li class="year">Year | <%= walls[i].year %></li>
             <li class="location">Location | <%= walls[i].location %></li>
             <li class="artist">Artist | <%= walls[i].artist %></li>

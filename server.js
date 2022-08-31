@@ -4,6 +4,7 @@ const port = 3000;
 const methodOverride = require("method-override");
 const { render } = require("ejs");
 const session = require("express-session");
+const multer = require("multer");
 
 // ENVIRONMENT VARRIABLES
 require("dotenv").config();
@@ -51,8 +52,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
+//MULTER MIDDLEWARE Better version
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'uploads')
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + '-' + Date.now())
+//   }
+// })
+
+// const upload = multer({ storage: storage })
+
 //MULTER MIDDLEWARE
-// const multer = require("multer");
+
 // const fileStorageEngine = multer.diskStorage({
 //   destination: (req, file, cb) => {
 //     cb(null, "./images");
@@ -131,7 +144,6 @@ app.get("/", (req, res) => {
 //   }
 //   db.close();
 // });
-
 
 // HOME ROUTE
 app.get("/wss-home", (req, res) => {

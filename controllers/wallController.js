@@ -24,6 +24,7 @@ router.get("/", (req, res) => {
 //USER INDEX ROUTE
 router.get("/loggedin", (req, res) => {
   Wall.find({}, (error, walls) => {
+    console.log(walls)
     res.render("user-index.ejs", { walls });
   });
 });

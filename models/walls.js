@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 // WALL SCHEMA
 const wallSchema = new Schema(
   {
+    img: String,
     year: Number,
     location: String,
     artist: String,

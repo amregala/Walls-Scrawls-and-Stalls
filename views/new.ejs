@@ -25,6 +25,19 @@
     <div class="add-box">
       <h2>Add Wall, Scrawl or Stall</h2>
       <form action="/walls" method="POST">
+        <!-- upload photo attempt -->
+        <!-- <form action="/uploadphoto" enctype="multipart/form-data" method="POST">
+          <input type="file" name="myImage" accept="image/*" />
+          <input type="submit" value="Upload Photo" />
+        </form> -->
+
+        <!-- info to fill in  -->
+
+        <div class="input-box">
+          <input type="text" name="img" required="" />
+          <label for="image">Image Link</label>
+        </div>
+
         <div class="input-box">
           <input type="text" name="year" required="" />
           <label for="year">Year Photo Was Taken</label>
@@ -34,6 +47,7 @@
           <input type="text" name="location" required="" />
           <label for="location">Location</label>
         </div>
+
         <div class="input-box">
           <input type="text" name="artist" required="" />
           <label for="artist">Artist (if known)</label>

@@ -20,8 +20,13 @@ ul {
   list-style-type: none;
 }
 
-.single-doc {
+.mainContainer {
   padding-bottom: 15px;
+  margin: 20px;
+}
+
+.single-doc {
+  /* padding-bottom: 15px; */
   margin: 20px;
 }
 
@@ -33,7 +38,7 @@ ul {
   display: flex;
 }
 input[type="submit"] {
-  padding: 5px 15px;
+  padding: 10px;
   background: #03e9f4;
   border: 0 none;
   cursor: pointer;
