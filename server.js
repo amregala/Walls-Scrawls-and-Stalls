@@ -42,7 +42,9 @@ const mongoURI = process.env.MONGODB_URI;
 const db = mongoose.connection;
 // Connect to Mongo
 mongoose.connect(mongoURI, () => {
-  console.log("The connection with mongod is established");
+  console.log(
+    `The connection with mongod is established. Mongodb connected at ${db.host}:${db.port}`
+  );
 });
 
 //MIDDLEWARE
