@@ -13,7 +13,8 @@ const authRequired = (req, res, next) => {
   }
 };
 
-// ROUTES
+// ****** ROUTES *******
+
 // INDEX ROUTE
 router.get("/", (req, res) => {
   Wall.find({}, (error, walls) => {

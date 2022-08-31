@@ -4,7 +4,6 @@ const port = 3000;
 const methodOverride = require("method-override");
 const { render } = require("ejs");
 const session = require("express-session");
-const multer = require("multer");
 
 // ENVIRONMENT VARRIABLES
 require("dotenv").config();
@@ -52,39 +51,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-//MULTER MIDDLEWARE Better version
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'uploads')
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.fieldname + '-' + Date.now())
-//   }
-// })
-
-// const upload = multer({ storage: storage })
-
-//MULTER MIDDLEWARE
-
-// const fileStorageEngine = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "./images");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-// const upload = { storage: fileStorageEngine };
-
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, index.html));
-// });
-
-// app.post("/single", upload.single("image"), (req, res) => {
-//   console.log(req.file);
-//   res.send("Single File Upload Success");
-// });
-
 // CONTROLLER IMPORTS
 const userController = require("./controllers/userController.js");
 app.use("/users", userController);
@@ -98,52 +64,6 @@ app.use("/walls", wallController);
 app.get("/", (req, res) => {
   res.send(`<h1>Walls, Scrawls and Stalls App</h1>`);
 });
-
-// app.get("/walls", (req, res) => {
-//   res.send(walls);
-// });
-
-// SEED ROUTE
-// const manyWalls = [
-//   {
-//     year: 2010,
-//     location: "New York, New York",
-//     artist: "Barry McGee",
-//   },
-//   {
-//     year: 2019,
-//     location: "Bogota, Colombia",
-//     artist: "Guache",
-//   },
-//   {
-//     year: 1985,
-//     location: "Amsterdam, Netherlands",
-//     artist: "Delta (Boris Tellegen)",
-//   },
-//   {
-//     year: 1980,
-//     location: "New York, New York",
-//     artist: "Keith Haring",
-//   },
-// ];
-
-// Wall.create(testWall, (err, wall) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(wall);
-//   }
-//   db.close();
-// });
-
-// Wall.insertMany(manyWalls, (error, walls) => {
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     console.log(walls);
-//   }
-//   db.close();
-// });
 
 // HOME ROUTE
 app.get("/wss-home", (req, res) => {
