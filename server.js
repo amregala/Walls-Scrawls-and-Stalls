@@ -7,7 +7,7 @@ const session = require("express-session");
 
 // ENVIRONMENT VARRIABLES
 require("dotenv").config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000
 
 // SESSIONS
 const SESSION_SECRET = process.env.SESSION_SECRET;
