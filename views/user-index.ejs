@@ -1,5 +1,3 @@
-<%- include('./partials/page.ejs') %>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,19 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/header-style.css" />
+    <link rel="stylesheet" href="/css/page-style.css" />
     <title>Walls, Scrawls and Stalls</title>
-    <style>
-      body {
-        /* background-color: grey; */
-        background-color: rgb(61, 58, 58);
-      }
-      button a {
-        color: black;
-      }
-    </style>
   </head>
 
   <body>
+    <!--  USER HEADER - HAS AN ADD NEW BUTTON ADDED HERE AND SIGNOUT-->
     <header>
       <h3 class="nav-title">
         <a href="/walls/loggedin"> WALLS, SCRAWLS, AND STALLS</a>
@@ -32,29 +23,30 @@
       </nav>
     </header>
 
-    <div class="mainContainer">
+    <div class="container">
       <% for(let i=0; i < walls.length; i++) { %>
-      <div class="single-doc">
-        <a href="/walls/<%= walls[i].id %>">
-          <img src="<%= walls[i].img%>" alt="" width="600" height="500" />
-          <ul>
-            <li class="year">Year | <%= walls[i].year %></li>
-            <li class="location">Location | <%= walls[i].location %></li>
-            <li class="artist">Artist | <%= walls[i].artist %></li>
+      <div class="single-post">
+        <a href="/walls/<%= walls[i].id %>" target="_blank">
+          <img src="<%= walls[i].img%>" alt="" />
+
+          <ul class="details">
+            <li class="year"><b>Year: </b><%= walls[i].year %></li>
+            <li class="location"><b>Location: </b><%= walls[i].location %></li>
+            <li class="artist"><b>Artist: </b> <%= walls[i].artist %></li>
           </ul>
         </a>
-      </div>
 
-      <!-- CRUD BUTTONS BELOW-->
-      <div class="crud-btn">
-        <!-- EDIT BUTTON -->
-        <button>
-          <a href="/walls/<%= walls[i].id; %>/edit">Edit </a>
-        </button>
-        <!-- DELETE BUTTON -->
-        <form action="/walls/<%= walls[i].id%>?_method=DELETE" method="POST">
-          <input type="submit" value="DELETE" />
-        </form>
+        <!-- DIV CONTAINING CRUD BUTTONS THAT ARE ALLOWED ACCESS WHEN LOGGED IN BELOW-->
+        <div class="crud-btn">
+          <!-- EDIT BUTTON -->
+          <button>
+            <a href="/walls/<%= walls[i].id; %>/edit">Edit </a>
+          </button>
+          <!-- DELETE BUTTON -->
+          <form action="/walls/<%= walls[i].id%>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE" />
+          </form>
+        </div>
       </div>
       <% } %>
     </div>

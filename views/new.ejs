@@ -1,5 +1,3 @@
-<%- include('./partials/add-new.ejs') %> <%- include('./partials/page.ejs') %>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/header-style.css" />
-    <title>WSS | Edit Page</title>
+    <link rel="stylesheet" href="/css/page-style.css" />
+    <link rel="stylesheet" href="/css/add-new-style.css" />
+    <title>WSS | ADD NEW</title>
   </head>
 
   <body>
@@ -17,6 +17,7 @@
       </h3>
       <nav>
         <ul class="nav_links">
+          <li><a href="/walls/loggedin">Back to Gallery Wall </a></li>
           <li><a href="/users/signout">Signout</a></li>
         </ul>
       </nav>
@@ -25,31 +26,26 @@
     <div class="add-box">
       <h2>Add Wall, Scrawl or Stall</h2>
       <form action="/walls" method="POST">
-        <!-- upload photo attempt -->
-        <!-- <form action="/uploadphoto" enctype="multipart/form-data" method="POST">
-          <input type="file" name="myImage" accept="image/*" />
-          <input type="submit" value="Upload Photo" />
-        </form> -->
-
-        <!-- info to fill in  -->
-
+        <!-- INPUTS TO FILL IN FOR NEW POST-->
         <div class="input-box">
           <input type="text" name="img" required="" />
-          <label for="image">Image Link</label>
+          <label for="image">Image Link | URL Only</label>
         </div>
 
         <div class="input-box">
-          <input type="text" name="year" required="" />
-          <label for="year">Year Photo Was Taken</label>
+          <input type="text" name="year" />
+          <label for="year"
+            >Year Photo Was Taken (if unknown leave blank)</label
+          >
         </div>
 
         <div class="input-box">
-          <input type="text" name="location" required="" />
+          <input type="text" name="location" />
           <label for="location">Location</label>
         </div>
 
         <div class="input-box">
-          <input type="text" name="artist" required="" />
+          <input type="text" name="artist" />
           <label for="artist">Artist (if known)</label>
         </div>
 

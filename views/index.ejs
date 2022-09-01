@@ -1,55 +1,50 @@
-<%- include('./partials/header.ejs') %> <%- include('./partials/page.ejs') %>
+<%- include('./partials/header.ejs') %> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      body {
-        background-color: rgb(61, 58, 58);
-      }
-    </style>
+    <title>Walls, Scrawls, and Stalls Gallery</title>
+    <link rel="stylesheet" href="/css/page-style.css" />
   </head>
 
   <body>
-    <div class="mainContainer">
+    <div class="container">
       <% for(let i=0; i < walls.length; i++) { %>
-      <div class="single-doc">
-     
+      <div class="single-post">
         <a href="/walls/<%= walls[i].id %>">
+          <img src="<%= walls[i].img%>" alt="" />
 
-          <img src="<%= walls[i].img%>" alt="" width="600" height="500"/>
-      
-          <ul>
-            <li class="year">Year | <%= walls[i].year %></li>
-            <li class="location">Location | <%= walls[i].location %></li>
-            <li class="artist">Artist | <%= walls[i].artist %></li>
-          </a>
+          <ul class="details">
+            <li class="year"><b>Year: </b> <%= walls[i].year %></li>
+            <li class="location"><b>Location: </b> <%= walls[i].location %></li>
+            <li class="artist"><b>Artist: </b><%= walls[i].artist %></li>
+          </ul>
 
-          <!-- BUTTON DIV SECTION BELOW -->
-          <div class="crud-btn">
-            <!-- NEW BUTTON -->
-            <button>
-              <a href="/walls/<%= walls[i].id; %>/edit">New</a>
-            </button>
+          <button class="showDetailBtn">SHOW DETAIL</button>
+        </a>
 
-            <!-- EDIT BUTTON -->
+        <!-- CRUD BUTTON DIV SECTION BELOW -->
 
-            <button><a href="/walls/<%= walls[i].id; %>/edit">Edit </a></button>
+        <!-- NOTE: HAD ORIGINALLY LEFT THESE ON GENERAL INDEX VIEW BUT REMOVED FROM VIEW FOR FINAL SUBMISSION. THOUGH THESE BUTTONS CAN APPEAR ON PAGE THERE IS AN AUTHREQUIRED MIDDLEWARE THAT PREVENTS THEM FROM ACTUALLY BEING USED UNLESS LOGGED IN. THESE BUTTONS ARE VISIBLE WHEN LOGGED IN -->
 
-            <!-- DELETE BUTTON -->
-            <form
-              action="/walls/<%= walls[i].id%>?_method=DELETE"
-              method="POST"
-            >
-              <input type="submit" value="DELETE" />
-            </form>
-          </div>
-        </div>
-        <% } %>
-      </ul>
+        <!-- <div class="crud-btn"> -->
+        <!-- NEW BUTTON -->
+        <!-- <button>
+            <a href="/walls/<%= walls[i].id; %>/edit">New</a>
+          </button> -->
+
+        <!-- EDIT BUTTON -->
+        <!-- <button><a href="/walls/<%= walls[i].id; %>/edit">Edit </a></button> -->
+
+        <!-- DELETE BUTTON -->
+        <!-- <form action="/walls/<%= walls[i].id%>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE" />
+          </form> -->
+        <!-- </div> -->
+      </div>
+      <% } %>
     </div>
   </body>
 </html>

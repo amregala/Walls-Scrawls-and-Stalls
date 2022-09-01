@@ -1,51 +1,12 @@
-<%- include('./partials/page.ejs') %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background-color: rgb(61, 58, 58);
-      }
-      header {
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        display: wrap;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30px 10%;
-      }
-
-      header a:hover {
-        color: #0088a9;
-        text-decoration: underline;
-      }
-      .single-post {
-        text-align: center;
-        /* margin: auto; */
-        width: 70%;
-        border: 3px solid #0088a9;
-        margin: 0 auto;
-        width: 60%;
-        position: absolute;
-        top: 60%;
-        left: 50%;
-        padding: 40px;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.5);
-        box-sizing: border-box;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="/css/show-style.css" />
+    <title>Walls, Scrawls and Stalls</title>
+    <style></style>
   </head>
 
   <body>
@@ -55,11 +16,21 @@
       </h3>
     </header>
 
-    <div class="single-post">
-      <img src="<%= wall.img%>" alt="" width="500" height="400" />
-      <h1><%= wall.year %></h1>
-      <h1><%= wall.location %></h1>
-      <h1><%= wall.artist %></h1>
-    </div>
+    <a href="/walls">
+      <div class="single-post">
+        <img src="<%= wall.img%>" alt="" />
+        <div class="post-info">
+          <h4>Year:</h4>
+          <p><%= wall.year %></p>
+
+          <h4>Location:</h4>
+
+          <p><%= wall.location %></p>
+
+          <h4>Artist:</h4>
+          <p><%= wall.artist %></p>
+        </div>
+      </div>
+    </a>
   </body>
 </html>
